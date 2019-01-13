@@ -10,10 +10,14 @@
 
 <body>
     <div style="padding: 12px; width: 400px;">
-        <input type="range" name="first" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)" value="0"><br>
-        <input type="range" name="second" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)" value="0"><br>
-        <input type="range" name="third" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)" value="0"><br>
-        <input type="range" name="fourth" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)" value="0"><br>
+        <input type="range" name="first" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)"
+            value="0"><br>
+        <input type="range" name="second" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)"
+            value="0"><br>
+        <input type="range" name="third" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)"
+            value="0"><br>
+        <input type="range" name="fourth" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)"
+            value="0"><br>
     </div>
     <script>
         function $(id) {
@@ -23,7 +27,7 @@
             console.log(data);
         }
         var first = document.getElementsByName('first');
-        first[0].value = 0;
+        first[0].value = 100;
         var sec = document.getElementsByName('second');
         sec[0].value = 0;
         var thi = document.getElementsByName('third');
@@ -32,22 +36,43 @@
         four[0].value = 0;
         function ch(e) {
             let r1 = e.target;
-            if(r1.name == 'first'){
-                if(parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value)  + parseInt(four[0].value) > 100){
-                    if(parseInt(sec[0].value) > 0){
-                        sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value)  + parseInt(four[0].value));
+            if (r1.name == 'first') {
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) >= 100) {
+                    if (parseInt(sec[0].value) > 0) {
+                        sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
                     }
-                    if(parseInt(sec[0].value) == 0 && parseInt(thi[0].value) > 0){
-                        thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value)  + parseInt(four[0].value));
+                    if (parseInt(sec[0].value) == 0 && parseInt(thi[0].value) > 0) {
+                        thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(four[0].value));
                     }
-                    if(parseInt(sec[0].value) == 0 && parseInt(thi[0].value) == 0 && parseInt(four[0].value) > 0){
-                        four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value)  + parseInt(thi[0].value));
+                    if (parseInt(sec[0].value) == 0 && parseInt(thi[0].value) == 0 && parseInt(four[0].value) > 0) {
+                        four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
                     }
                 }
             }
-            if(r1.name == 'second'){
-                if(!(parseInt(e.target.value) + parseInt(first[0].value) < 100)){
-                    first[0].value = 100 - parseInt(e.target.value);
+            if (r1.name == 'second') {
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) >= 100) {
+                    if (parseInt(first[0].value) > 0) {
+                        first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(first[0].value) == 0 && parseInt(thi[0].value) > 0) {
+                        thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(first[0].value) == 0 && parseInt(thi[0].value) == 0 && parseInt(four[0].value) > 0) {
+                        four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
+                    }
+                }
+            }
+            if (r1.name == 'third') {
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) >= 100) {
+                    if (parseInt(sec[0].value) > 0) {
+                        sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(sec[0].value) == 0 && parseInt(first[0].value) > 0) {
+                        first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(sec[0].value) == 0 && parseInt(first[0].value) == 0 && parseInt(four[0].value) > 0) {
+                        four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
+                    }
                 }
             }
         }
