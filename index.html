@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ranger</title>
+</head>
+
+<body>
+    <div style="padding: 12px; width: 400px;">
+        <input type="range" name="first" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)" value="0"><br>
+        <input type="range" name="second" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)" value="0"><br>
+        <input type="range" name="third" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)" value="0"><br>
+        <input type="range" name="fourth" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)" value="0"><br>
+    </div>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        function $p(data) {
+            console.log(data);
+        }
+        var first = document.getElementsByName('first');
+        first[0].value = 0;
+        var sec = document.getElementsByName('second');
+        sec[0].value = 0;
+        var thi = document.getElementsByName('third');
+        thi[0].value = 0;
+        var four = document.getElementsByName('fourth');
+        four[0].value = 0;
+        function ch(e) {
+            let r1 = e.target;
+            if(r1.name == 'first'){
+                if(parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value)  + parseInt(four[0].value) > 100){
+                    if(parseInt(sec[0].value) > 0){
+                        sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value)  + parseInt(four[0].value));
+                    }
+                }
+            }
+            if(r1.name == 'second'){
+                if(!(parseInt(e.target.value) + parseInt(first[0].value) < 100)){
+                    first[0].value = 100 - parseInt(e.target.value);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
