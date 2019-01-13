@@ -9,14 +9,15 @@
 </head>
 
 <body>
-    <div style="padding: 12px; width: 400px;">
-        <input type="range" name="first" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)"
+    <div style="padding: 12px; width: 400px; margin: auto;">
+        <h1 style="margin-bottom: 30px; margin-top: 40px;">Coded by Abdur Rahman</h1>
+        <input type="range" name="first" min="0" max="100" style="width: 100%" onmousedown="inTaker(event)" oninput="ch(event)" onchange="ch(event)"
             value="0"><br>
-        <input type="range" name="second" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)"
+        <input type="range" name="second" min="0" max="100" style="width: 100%" onmousedown="inTaker(event)" oninput="ch(event)" onchange="ch(event)"
             value="0"><br>
-        <input type="range" name="third" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)"
+        <input type="range" name="third" min="0" max="100" style="width: 100%" onmousedown="inTaker(event)" oninput="ch(event)" onchange="ch(event)"
             value="0"><br>
-        <input type="range" name="fourth" min="0" max="100" style="width: 100%" oninput="ch(event)" onchange="ch(event)"
+        <input type="range" name="fourth" min="0" max="100" style="width: 100%" onmousedown="inTaker(event)" oninput="ch(event)" onchange="ch(event)"
             value="0"><br>
     </div>
     <script>
@@ -34,6 +35,21 @@
         thi[0].value = 0;
         var four = document.getElementsByName('fourth');
         four[0].value = 0;
+        function inTaker(e){
+            $p(e.target.value);
+            if (e.target.name == 'first'){
+                first[0].value = e.target.value;
+            }
+            if (e.target.name == 'second'){
+                sec[0].value = e.target.value;
+            }
+            if (e.target.name == 'third'){
+                thi[0].value = e.target.value;
+            }
+            if (e.target.name == 'fourth'){
+                four[0].value = e.target.value;
+            }
+        }
         function ch(e) {
             let r1 = e.target;
             if (r1.name == 'first') {
@@ -49,7 +65,7 @@
                     }
                 }
                 if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) < 100) {
-                    $p('less');
+                    // $p('less');
                     if (parseInt(sec[0].value) < 100) {
                         sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
                     }
