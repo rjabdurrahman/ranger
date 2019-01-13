@@ -37,6 +37,12 @@
                     if(parseInt(sec[0].value) > 0){
                         sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value)  + parseInt(four[0].value));
                     }
+                    if(parseInt(sec[0].value) == 0 && parseInt(thi[0].value) > 0){
+                        thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value)  + parseInt(four[0].value));
+                    }
+                    if(parseInt(sec[0].value) == 0 && parseInt(thi[0].value) == 0 && parseInt(four[0].value) > 0){
+                        four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value)  + parseInt(thi[0].value));
+                    }
                 }
             }
             if(r1.name == 'second'){
