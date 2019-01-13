@@ -11,13 +11,13 @@
 <body>
     <div style="padding: 12px; width: 400px; margin: auto;">
         <h1 style="margin-bottom: 30px; margin-top: 40px;">Coded by Abdur Rahman</h1>
-        <input type="range" name="first" min="0" max="100" style="width: 100%" onmousedown="inTaker(event)" oninput="ch(event)"
+        <input type="range" name="first" min="0" max="100" style="width: 100%" oninput="ch(event)"
             onchange="ch(event)" value="0"><br>
-        <input type="range" name="second" min="0" max="100" style="width: 100%" onmousedown="inTaker(event)" oninput="ch(event)"
+        <input type="range" name="second" min="0" max="100" style="width: 100%" oninput="ch(event)"
             onchange="ch(event)" value="0"><br>
-        <input type="range" name="third" min="0" max="100" style="width: 100%" onmousedown="inTaker(event)" oninput="ch(event)"
+        <input type="range" name="third" min="0" max="100" style="width: 100%" oninput="ch(event)"
             onchange="ch(event)" value="0"><br>
-        <input type="range" name="fourth" min="0" max="100" style="width: 100%" onmousedown="inTaker(event)" oninput="ch(event)"
+        <input type="range" name="fourth" min="0" max="100" style="width: 100%" oninput="ch(event)"
             onchange="ch(event)" value="0"><br>
     </div>
     <script>
@@ -38,17 +38,10 @@
                 xDirection = "left";
             }
 
-            //deal with the vertical case
-            if (oldY < e.pageY) {
-                yDirection = "down";
-            } else {
-                yDirection = "up";
-            }
-
             oldX = e.pageX;
             oldY = e.pageY;
 
-            console.log(xDirection + " " + yDirection);
+            // console.log(xDirection);
         }
         // This started
         function $(id) {
@@ -57,10 +50,7 @@
         function $p(data) {
             console.log(data);
         }
-        var one = 100;
-        var two = 0;
-        var three = 0;
-        var last = 0;
+
         var first = document.getElementsByName('first');
         first[0].value = 100;
         var sec = document.getElementsByName('second');
@@ -69,21 +59,7 @@
         thi[0].value = 0;
         var four = document.getElementsByName('fourth');
         four[0].value = 0;
-        function inTaker(e) {
-            if (e.target.name == 'first') {
-                one = e.target.value;
-            }
-            if (e.target.name == 'second') {
-                two = e.target.value;
-            }
-            if (e.target.name == 'third') {
-                three = e.target.value;
-            }
-            if (e.target.name == 'fourth') {
-                last = e.target.value;
-            }
-            $p(one);
-        }
+
         function ch(e) {
             let r1 = e.target;
             if (r1.name == 'first') {
@@ -112,8 +88,7 @@
                 }
             }
             if (r1.name == 'second') {
-                if (r1.value > two) {
-                    $p('rising');
+                if (xDirection == 'right') {
                     if (parseInt(thi[0].value) > 0) {
                         thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(four[0].value));
                     }
@@ -124,8 +99,7 @@
                         first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
                     }
                 }
-                if (r1.value < two) {
-                    $p('belowing');
+                if (xDirection == "left") {
                     if (parseInt(first[0].value) < 100) {
                         first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
                     }
