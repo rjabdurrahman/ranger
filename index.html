@@ -37,7 +37,7 @@
         function ch(e) {
             let r1 = e.target;
             if (r1.name == 'first') {
-                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) >= 100) {
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) > 100) {
                     if (parseInt(sec[0].value) > 0) {
                         sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
                     }
@@ -48,9 +48,21 @@
                         four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
                     }
                 }
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) < 100) {
+                    $p('less');
+                    if (parseInt(sec[0].value) < 100) {
+                        sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(sec[0].value) == 0 && parseInt(thi[0].value) < 100) {
+                        thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(sec[0].value) == 0 && parseInt(thi[0].value) == 0 && parseInt(four[0].value) < 100) {
+                        four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
+                    }
+                }
             }
             if (r1.name == 'second') {
-                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) >= 100) {
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) > 100) {
                     if (parseInt(first[0].value) > 0) {
                         first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
                     }
@@ -61,9 +73,20 @@
                         four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
                     }
                 }
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) < 100) {
+                    if (parseInt(first[0].value) < 100) {
+                        first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(first[0].value) == 0 && parseInt(thi[0].value) < 100) {
+                        thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(first[0].value) == 0 && parseInt(thi[0].value) == 0 && parseInt(four[0].value) < 100) {
+                        four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
+                    }
+                }
             }
             if (r1.name == 'third') {
-                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) >= 100) {
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) > 100) {
                     if (parseInt(sec[0].value) > 0) {
                         sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
                     }
@@ -72,6 +95,41 @@
                     }
                     if (parseInt(sec[0].value) == 0 && parseInt(first[0].value) == 0 && parseInt(four[0].value) > 0) {
                         four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
+                    }
+                }
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) < 100) {
+                    if (parseInt(sec[0].value) < 100) {
+                        sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(sec[0].value) == 0 && parseInt(first[0].value) < 100) {
+                        first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(sec[0].value) == 0 && parseInt(first[0].value) == 0 && parseInt(four[0].value) < 100) {
+                        four[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value));
+                    }
+                }
+            }
+            if (r1.name == 'fourth') {
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) > 100) {
+                    if (parseInt(thi[0].value) > 0) {
+                        thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(thi[0].value) == 0 && parseInt(sec[0].value) > 0) {
+                        sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(thi[0].value) == 0 && parseInt(sec[0].value) == 0 && parseInt(first[0].value) > 0) {
+                        first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                }
+                if (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value) < 100) {
+                    if (parseInt(thi[0].value) < 100) {
+                        thi[0].value = 100 - (parseInt(first[0].value) + parseInt(sec[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(thi[0].value) == 0 && parseInt(sec[0].value) < 100) {
+                        sec[0].value = 100 - (parseInt(first[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
+                    }
+                    if (parseInt(thi[0].value) == 0 && parseInt(sec[0].value) == 0 && parseInt(first[0].value) < 100) {
+                        first[0].value = 100 - (parseInt(sec[0].value) + parseInt(thi[0].value) + parseInt(four[0].value));
                     }
                 }
             }
