@@ -27,6 +27,10 @@
         function $p(data) {
             console.log(data);
         }
+        var one = 100;
+        var two = 0;
+        var three = 0;
+        var last = 0;
         var first = document.getElementsByName('first');
         first[0].value = 100;
         var sec = document.getElementsByName('second');
@@ -36,19 +40,19 @@
         var four = document.getElementsByName('fourth');
         four[0].value = 0;
         function inTaker(e){
-            $p(e.target.value);
             if (e.target.name == 'first'){
-                first[0].value = e.target.value;
+                one = e.target.value;
             }
             if (e.target.name == 'second'){
-                sec[0].value = e.target.value;
+                two = e.target.value;
             }
             if (e.target.name == 'third'){
-                thi[0].value = e.target.value;
+                three = e.target.value;
             }
             if (e.target.name == 'fourth'){
-                four[0].value = e.target.value;
+                last = e.target.value;
             }
+            $p(one);
         }
         function ch(e) {
             let r1 = e.target;
